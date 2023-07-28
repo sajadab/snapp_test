@@ -1,0 +1,19 @@
+{
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ],
+  "name": "تست اسنپ",
+  "short_name": "تست اسنپ فود",
+  "orientation": "portrait",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "id": "/",
+  "description": "اپلیکیشن تست انپ فود",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff"
+}

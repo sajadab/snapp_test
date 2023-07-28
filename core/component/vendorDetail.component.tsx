@@ -7,6 +7,7 @@ import {useRouter} from "next/navigation";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "../redux/store";
 import {VENDOR_ACTION} from "../redux/reducer/assetReducer";
+import {useTranslation} from "react-i18next";
 
 interface Props {
     item: VendorResponseResultDetailModel
@@ -14,6 +15,7 @@ interface Props {
 
 export const VendorDetailComponent: FC<Props> = (props) => {
     const router = useRouter();
+    const { t } = useTranslation();
     let dispatch = useDispatch<AppDispatch>();
 
     function vendorItemClick() {
@@ -40,7 +42,7 @@ export const VendorDetailComponent: FC<Props> = (props) => {
                 className={styles.foodDesc}>{props.item.description}</div>
             <div className={styles.titleContainer}>
                 <div className={styles.columnContainer}>
-                    <div>{toPersianNumber(`${props.item.rate} از 5 `)}</div>
+                    <div>{toPersianNumber(`${props.item.rate} ${t('fromFive')} `)}</div>
                     <div className={styles.starBackground}>
                         <svg
                             fill={`#a3a3a3`}
@@ -48,7 +50,7 @@ export const VendorDetailComponent: FC<Props> = (props) => {
                             <path d={STAR_SVG_PATH}/>
                         </svg>
                         <div
-                            className={styles.commentCount}>{toPersianNumber(`از ${props.item.commentCount} امتیاز`)}</div>
+                            className={styles.commentCount}>{toPersianNumber(`${t('from')} ${props.item.commentCount} ${t('score')}`)}</div>
                     </div>
                 </div>
             </div>

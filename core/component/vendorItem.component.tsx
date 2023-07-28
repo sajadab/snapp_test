@@ -7,6 +7,7 @@ import {useRouter} from "next/navigation";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "../redux/store";
 import {VENDOR_ACTION} from "../redux/reducer/assetReducer";
+import {useTranslation} from "react-i18next";
 
 interface Props{
     item:VendorResponseResultDetailModel
@@ -14,6 +15,7 @@ interface Props{
 
 export const VendorItemComponent:FC<Props>=(props)=>{
     const router=useRouter();
+    const { t } = useTranslation();
     let dispatch = useDispatch<AppDispatch>();
     function vendorItemClick() {
         dispatch({
@@ -51,7 +53,7 @@ export const VendorItemComponent:FC<Props>=(props)=>{
             <div
                 className={styles.foodDesc}>{props.item.description}</div>
             <div className={styles.foodDesc}>
-                <span>{props.item.isZFExpress ? "ارسال اکسپرس" : "پیک فروشنده"}</span> {props.item.deliveryFee > 0 ? toPersianNumber(props.item.deliveryFee.toLocaleString()) + " تومان " : "رایگان"}
+                <span>{props.item.isZFExpress ? t('expressSend') : t('customerDelivery') }</span> {props.item.deliveryFee > 0 ? toPersianNumber(props.item.deliveryFee.toLocaleString()) + ` ${t('currency')} ` : t('free')}
             </div>
         </div>
     )

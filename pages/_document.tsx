@@ -1,10 +1,13 @@
 import {Head, Html, Main, NextScript} from 'next/document'
+import {useTranslation} from "react-i18next";
 
 export default function Document() {
+    const { t } = useTranslation();
     return (
         <Html lang="fa" dir={"rtl"}>
             <Head>
-                <title>تست اسنپ</title>
+                <title>{t('snappTest')}</title>
+                <meta name={"description"} content={t('snappTestDesc')} />
             </Head>
             <body>
             <Main/>
